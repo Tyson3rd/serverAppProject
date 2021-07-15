@@ -22,14 +22,14 @@ app.get('/item', async (req, res) => {
 })
 app.get('/flipcoin', async (req, res) => {
     const coinflip = !Math.floor(Math.random() * 2) ? 'Heads' : 'Tails'
-    res.send();
+    res.send(coinflip);
 })
 app.get('/item/:id', async (req, res) => {
     const allItems = await Item.findAll();
     res.json(allItems[req.params.id]);
 })
-app.get('restaurant/:id', async (req, res) => {
-    const item = await Restaurant.findByPk(req.id);
+app.get('/restaurant', async (req, res) => {
+    const item = await Restaurant.findAll();
     res.json(item);
 });
 
